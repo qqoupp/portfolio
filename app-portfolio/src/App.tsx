@@ -3,8 +3,8 @@ import "./App.css";
 import backgroundImage from './components/images/background/blurry-gradient-haikei.svg';
 import { ThemeProvider, CssBaseline} from "@mui/material";
 import theme from "./Theme/index";
-import MainRouter from "./components/routers/MainRouter";
 import Container from "./components/Container";
+import LandingPage from "./components/pages/landingPage";
 
 function App() {
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
   <ThemeProvider theme={theme}>
     <CssBaseline  />
     <Container>
-    <MainRouter />
+      <LandingPage/>
   </Container>
   </ThemeProvider>
 );

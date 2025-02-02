@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+body {
+  background-image: url('./components/images/background/blurry-gradient-haikei.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}

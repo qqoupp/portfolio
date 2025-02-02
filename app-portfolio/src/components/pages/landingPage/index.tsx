@@ -1,8 +1,16 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
+import AboutPage from "../aboutPage";
+import Header from "../../Header";
+import Skills from "../skills";
+import Projects from "../projects";
+import Contact from "../contactPage";
+import Resume from "../resume";
 
 const LandingPage = () => {
     return (
+        <>
+        <Header />
         <Box className="container mx-auto p-4 ">
       <Grid container spacing={2}>
         <Grid item xs={8}>
@@ -30,7 +38,14 @@ const LandingPage = () => {
           
         </Grid>
       </Grid>
+        <AboutPage />
+        <Skills />
+        <Projects />
+        <Contact />
+        <Resume />
     </Box>
+        
+        </>
     );
     };
 export default LandingPage;
