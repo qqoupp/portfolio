@@ -6,6 +6,7 @@ import Skills from "../skills";
 import Projects from "../projects";
 import Contact from "../contactPage";
 import Resume from "../resume";
+import profileImage from "../../images/profile/profile.jpeg"
 
 const LandingPage = () => {
     return (
@@ -15,27 +16,13 @@ const LandingPage = () => {
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <div className="pt-12">
-            <Typography variant="h4" >
-              Hi, my name is Radu Simuleac, and I&apos;m on the verge of
-              completing my journey as a software engineering student. This
-              website is a milestone of my undergraduate project—a testament to
-              the skills and knowledge I&apos;ve gained throughout my academic
-              career. It embodies my passion for facilitating creativity and
-              innovation within the tech community. Here, you&apos;ll discover a
-              curated selection of project ideas that spark inspiration and an
-              extensive repository of tech insights that could be the bedrock of
-              your next big venture. Whether seeking guidance to crystallize
-              your vision or exploring the dynamic world of technology to find
-              your niche, this platform is designed to support and enrich your
-              creative process.
+            <Typography variant="h2" >
+            Hi, my name is <span className="text-orange-400"> Radu Constantin Simuleac</span>, and here you can check out what I have been working on. I try my best to create things with ❤️
             </Typography>
           </div>
         </Grid>
         <Grid item xs={4} className="flex justify-center items-center">
-                <Typography variant="h1">
-                    Future image here
-                </Typography>
-          
+        <img className="h-96 w-96 object-scale-down rounded-full border-8 border-orange-400 borde" src={profileImage} />
         </Grid>
       </Grid>
         <AboutPage />
