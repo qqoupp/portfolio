@@ -9,6 +9,7 @@ import Resume from "../resume";
 import profileImage from "../../images/profile/profile.jpeg"
 
 const LandingPage = () => {
+    
     return (
         <>
         <Header />
@@ -16,13 +17,13 @@ const LandingPage = () => {
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <div className="pt-12">
-            <Typography variant="h2" >
+            <Typography variant="h2" color={"white"} >
             Hi, my name is <span className="text-orange-400"> Radu Constantin Simuleac</span>, and here you can check out what I have been working on. I try my best to create things with ❤️
             </Typography>
           </div>
         </Grid>
         <Grid item xs={4} className="flex justify-center items-center">
-        <img className="h-96 w-96 object-scale-down rounded-full border-8 border-orange-400 borde" src={profileImage} />
+        <img className="h-86 w-86 object-scale-down rounded-full border-8 border-orange-400 borde" src={profileImage} />
         </Grid>
       </Grid>
         <AboutPage />
