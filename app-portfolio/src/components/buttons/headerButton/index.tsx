@@ -13,7 +13,8 @@ const StyledButton = styled(ButtonBase)(({ theme }) => ({
   '&:hover, &.Mui-focusVisible': {
     zIndex: 1,
     '& .MuiTypography-root': {
-      border: '4px solid currentColor', 
+      border: '4px solid orange', 
+      color : 'orange',
     },
   },
 }));
