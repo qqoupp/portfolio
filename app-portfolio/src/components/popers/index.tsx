@@ -19,7 +19,7 @@ function PopperPopupState({ title, content }: PopperProps) {
         <ClickAwayListener onClickAway={() => popupState.close()}>
           <div>
             <Typography
-              className="text-white hover:text-orange-400 transition-colors duration-300 cursor-pointer"
+              className="pt-2 text-white hover:text-orange-400 transition-colors duration-300 cursor-pointer"
               variant="h3"
               {...bindToggle(popupState)}
             >
@@ -33,13 +33,12 @@ function PopperPopupState({ title, content }: PopperProps) {
                     <Box
                       sx={{
                         border: 1,
-                        p: 2,
+                        p: 1,
                         bgcolor: '#1E3F66',
                         color: 'white',
-                        borderRadius: 2,
                       }}
                     >
-                      <Typography sx={{ p: 2 }}>{content}</Typography>
+                      <Typography sx={{ p: 1 }}>{content}</Typography>
 
                       <div className="flex flex-row justify-between">
                         <div></div>
