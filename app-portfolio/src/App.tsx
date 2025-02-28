@@ -9,9 +9,7 @@ function App() {
   return (
   <ThemeProvider theme={theme}>
     <CssBaseline  />
-    <Container>
       <LandingPage/>
-  </Container>
   </ThemeProvider>
 );
 }

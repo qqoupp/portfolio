@@ -1,7 +1,10 @@
 
 body {
-  background-image: url('./components/images/background/blueBackground.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: scroll;
+  background-color: black;
+}
+.parallax-section {
+  height: 100vh;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -23,7 +23,7 @@ const Projects = forwardRef<HTMLButtonElement>((props, ref) => {
           </span>
         </span>
       </Typography>
-      <Box className="border-2 border-orange-400 p-4">
+      <Box className="p-4">
         <div className="flex flex-row justify-between">
           <Typography className="text-white " variant="h3">
             ElevateStakLearning
@@ -82,20 +82,19 @@ const Projects = forwardRef<HTMLButtonElement>((props, ref) => {
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             <Grid item xs={6}>
-                <Typography className="text-white"> Authentication and Registration card with video example and explainations</Typography>
-                <AuthenticationCard />
+                <AuthenticationCard title={"Authentication and authorization"} content={"Expend for more info and video example"} extraContent={"To be added"}/>
             </Grid>
             <Grid item xs={6}>
-                <Typography className="text-white">Guide genaration card with video example and explaination</Typography>
+                <AuthenticationCard title={"Generating a learning path "} content={"Expend for more info and video example"} extraContent={"To be added"}/>
             </Grid>
             <Grid item xs={6}>
-                <Typography className="text-white">Learning Path visualization card with video example and explaination</Typography>
+                <AuthenticationCard title={"Learning path visualization"} content={"Expend for more info and video example"} extraContent={"To be added"}/>
             </Grid>
             <Grid item xs={6}>
-                <Typography className="text-white"> Further costum questions generation card with video examples and explaination</Typography>
+                <AuthenticationCard title={"Aditional querry for the learning path instructions"} content={"Expend for more info and video example"} extraContent={"To be added"}/>
             </Grid>
             <Grid item xs={6}>
-                <Typography className="text-white">History of previous requests and generated outpus card with video example and explanation</Typography>
+                <AuthenticationCard title={"History of learning paths"} content={"Expend for more info and video example"} extraContent={"To be added"}/>
             </Grid>
           </Grid>
         </div>
