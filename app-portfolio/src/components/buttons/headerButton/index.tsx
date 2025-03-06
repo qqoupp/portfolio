@@ -1,52 +1,86 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import ButtonBase from '@mui/material/ButtonBase';
-import Typography from '@mui/material/Typography';
-import { title } from 'process';
+import React from "react";
+import styled from "styled-components";
 
-const StyledButton = styled(ButtonBase)(({ theme }) => ({
-  position: 'relative',
-  [theme.breakpoints.down('sm')]: {
-    height: 100,
-  },
-  '&:hover, &.Mui-focusVisible': {
-    zIndex: 1,
-    '& .MuiTypography-root': {
-      border: '4px solid orange', 
-      color : 'orange',
-    },
-  },
-}));
+// Styled Components for Fancy Button
+const ButtonWrapper = styled.div<{ isActive: boolean }>`
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  perspective: 600px;
+  width: 100px;  /* Reduced width */
+  height: 50px;  /* Reduced height */
 
-interface ButtonBaseDemoProps {
+  ${({ isActive }): string => isActive ? `
+    ${Flipper} {
+      transform: rotateX(0deg);
+    }
+  ` : ''}
+`;
+
+const Flipper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-90deg);
+  transition: transform 0.3s ease;
+
+  ${ButtonWrapper}:hover & {
+    transform: rotateX(0deg);
+  }
+
+  ${ButtonWrapper}:active & {
+    transform: rotateX(0deg) scale(0.95);
+    transition: transform 0.05s ease;
+  }
+`;
+
+const ButtonFace = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+`;
+
+const FrontFace = styled(ButtonFace)`
+  background-color: #ff6600;
+  color: white;
+  transform: rotateX(0deg) translateZ(25px); 
+`;
+
+const BackFace = styled(ButtonFace)`
+  background-color: transparent;
+  color: #ff6600;
+  border: 3px solid #ff6600;
+  transform: rotateX(90deg) translateZ(25px); 
+
+  ${ButtonWrapper}:hover & {
+    mix-blend-mode: difference;
+  }
+`;
+
+interface FancyButtonProps {
   title: string;
   onClick: () => void;
+  isActive?: boolean;
 }
 
-export default function ButtonBaseDemo({ title, onClick }: ButtonBaseDemoProps) {
-  
-
+const FancyButton: React.FC<FancyButtonProps> = ({ title, onClick, isActive = false }) => {
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
-      <StyledButton focusRipple onClick={onClick}>
-        <Typography
-          component="span"
-          variant="h5"
-          color="inherit"
-          sx={(theme) => ({
-            position: 'relative',
-            p: 4,
-            pt: 2,
-            pb: `calc(${theme.spacing(1)} + 6px)`,
-            color: theme.palette.common.white,
-            transition: 'border 0.3s ease', // Smooth border animation
-            
-          })}
-        >
-          {title}
-        </Typography>
-      </StyledButton>
-    </Box>
+    <ButtonWrapper onClick={onClick} isActive={isActive}>
+      <Flipper>
+        <FrontFace>{title}</FrontFace>
+        <BackFace>{title}</BackFace>
+      </Flipper>
+    </ButtonWrapper>
   );
-}
+};
+
+export default FancyButton;

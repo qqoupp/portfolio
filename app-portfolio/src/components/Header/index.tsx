@@ -1,47 +1,36 @@
-import { Typography } from "@mui/material";
 import React from "react";
-import HeaderButton from "../buttons/headerButton";
+import FancyButton from "../buttons/headerButton";
 import AnimatedList from "../animations/logo";
 import Container from "../Container";
 
+type SectionName = "about" | "skills" | "projects" | "contact"| "home";
+
 interface HeaderProps {
-    onScrollAbout: () => void;
-    onScrollSkills: () => void;
-    onScrollProjects: () => void;
-    onScrollContact: () => void;
+  activeSection: SectionName;
+  onScroll: (section: SectionName) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({
-    onScrollAbout,
-    onScrollSkills,
-    onScrollProjects,
-    onScrollContact,
-}) => {
-    const handleClick = () => {
-        alert('Button clicked!');
-    };
+const sections: SectionName[] = ["about", "skills", "projects", "contact"];
 
-    const handleResumeClick = () => {
-        window.open(process.env.PUBLIC_URL + '/resume.pdf', '_blank');
-    };
+const Header: React.FC<HeaderProps> = ({ activeSection, onScroll }) => {
+  const sections: SectionName[] = ["about", "skills", "projects", "contact",];
 
-    return (
-        <Container>
-            <div className="pb-5 pt-5 flex flex-row justify-between items-center">
-                <div className="pt-4 relative">
-                    <AnimatedList />
-                </div>
-                
-                <div className="flex space-x-2">
-                    <HeaderButton title="About" onClick={onScrollAbout} />
-                    <HeaderButton title="Skills" onClick={onScrollSkills} />
-                    <HeaderButton title="Projects" onClick={onScrollProjects} />
-                    <HeaderButton title="Contact" onClick={onScrollContact} />
-                    <HeaderButton title="Resume" onClick={handleResumeClick} />
-                </div>
-            </div>
-        </Container>
-    );
+  return (
+    <Container>
+      <div className="flex justify-between items-center pt-4">
+        <AnimatedList />
+        {sections.map((section) => (
+          <FancyButton
+            key={section}
+            title={section.charAt(0).toUpperCase() + section.slice(1)}
+            onClick={() => onScroll(section)}
+            isActive={activeSection === section}
+          />
+        ))}
+        <FancyButton title="Resume" onClick={() => window.open(process.env.PUBLIC_URL + '/resume.pdf', '_blank')} />
+      </div>
+    </Container>
+  );
 };
 
 export default Header;

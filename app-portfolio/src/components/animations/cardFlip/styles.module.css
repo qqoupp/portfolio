@@ -1,0 +1,25 @@
+.c {
+    position: absolute;
+    max-width: 600px;
+    max-height: 600px;
+    width: 350px;
+    height: 350px;
+    cursor: pointer;
+    will-change: transform, opacity;
+    object-fit: scale-down;
+    border-radius: 50%;
+    border: 4px solid #ff6600; /* Orange-400 */
+  }
+  
+  .front,
+  
+  
+  
+  
+  .container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+  }
+  
