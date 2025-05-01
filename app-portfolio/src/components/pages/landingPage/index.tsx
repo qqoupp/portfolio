@@ -16,29 +16,26 @@ const LandingPage = () => {
   const parallaxRef = useRef<IParallax>(null);
   const [activeSection, setActiveSection] = useState<SectionName>("home");
 
-  // Offset values for sections
   const sectionOffsets: Record<SectionName, number> = {
     home: 0,
-    about: 0.3, // Adjust these as per your layout (as a ratio of total page height)
+    about: 0.3,
     skills: 0.9,
     projects: 1.5,
     contact: 2.5,
   };
 
-  // Function to scroll to a specific section
   const scrollToSection = (section: SectionName) => {
     const offset = sectionOffsets[section];
     parallaxRef.current?.scrollTo(offset);
   };
 
-  // Detect the active section as the user scrolls
   const handleScroll = () => {
     if (!parallaxRef.current) return;
 
-    const scrollPosition = parallaxRef.current.container.current?.scrollTop ?? 0; // Get the current scroll position
+    const scrollPosition =
+      parallaxRef.current.container.current?.scrollTop ?? 0;
 
-    // Determine the active section based on the scroll position
-    let active: SectionName = "home"; // Default to "home"
+    let active: SectionName = "home";
     if (scrollPosition >= sectionOffsets.contact * window.innerHeight) {
       active = "contact";
     } else if (scrollPosition >= sectionOffsets.projects * window.innerHeight) {
@@ -53,70 +50,87 @@ const LandingPage = () => {
   };
 
   useEffect(() => {
-    // Listen for scroll changes in a set interval
-    const interval = setInterval(handleScroll, 100); // Check every 100ms for scroll position
+    const interval = setInterval(handleScroll, 100);
 
-    // Clean up when the component is unmounted
     return () => {
       clearInterval(interval);
     };
   }, []);
 
-  // Transparent header style
   const headerStyle = {
-    position: "fixed" as "fixed", // Fixed header
+    position: "fixed" as "fixed",
     top: 0,
     left: 0,
     width: "100%",
     zIndex: 10,
-    backgroundColor: "transparent", // Transparent background
-    backdropFilter: "blur(20px)", // Transparent background blur
+    backgroundColor: "transparent",
+    backdropFilter: "blur(20px)",
   };
 
   return (
     <>
-      {/* Fixed Transparent Header */}
       <div style={headerStyle}>
         <Header activeSection={activeSection} onScroll={scrollToSection} />
       </div>
 
-      <Parallax ref={parallaxRef} pages={4} onScroll={handleScroll}>
-        {/* Background Layers */}
-        <ParallaxLayer offset={0} speed={1} factor={2.5} style={{ backgroundImage: `url(${p1})`, backgroundSize: "cover" }} />
-        <ParallaxLayer offset={1.4} speed={1} factor={3} style={{ backgroundImage: `url(${p2})`, backgroundSize: "cover" }} />
-        <ParallaxLayer offset={2.85} speed={1} factor={3} style={{ backgroundImage: `url(${p3})`, backgroundSize: "cover" }} />
+      <Parallax
+        ref={parallaxRef}
+        pages={window.innerWidth < 768 ? 5.5 : 4}
+        onScroll={handleScroll}
+      >
+        <ParallaxLayer
+          offset={0}
+          speed={1}
+          factor={7}
+          style={{
+            backgroundImage: `url(${p1})`,
+            backgroundSize: "cover",
+            opacity: "0.2",
+          }}
+        />
 
-        {/* Intro Section */}
-        <ParallaxLayer offset={0} speed={0.5} factor={1}>
-          <div style={{ height: "75vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <ParallaxLayer
+          offset={window.innerWidth < 768 ? 0.1 : 0}
+          speed={0.5}
+          factor={1}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6">
             <Intro />
           </div>
         </ParallaxLayer>
 
-        {/* About Section */}
-        <ParallaxLayer offset={0.6} speed={0.5} factor={1}>
-          <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <ParallaxLayer
+          offset={window.innerWidth < 768 ? 0.9 : 0.6}
+          speed={0.5}
+          factor={1}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen ">
             <AboutPage />
           </div>
         </ParallaxLayer>
 
-        {/* Skills Section */}
-        <ParallaxLayer offset={1} speed={0.5} factor={1}>
-          <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <ParallaxLayer
+          offset={window.innerWidth < 768 ? 1.6 : 1}
+          speed={0.5}
+          factor={1}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6">
             <Skills />
           </div>
         </ParallaxLayer>
 
-        {/* Projects Section */}
         <ParallaxLayer offset={2} speed={0.5} factor={1}>
-          <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6">
             <Projects />
           </div>
         </ParallaxLayer>
 
-        {/* Contact Section */}
-        <ParallaxLayer offset={3} speed={0.5} factor={1}>
-          <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <ParallaxLayer
+          offset={window.innerWidth < 768 ? 4.5 : 3.3}
+          speed={0.5}
+          factor={1}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6">
             <Contact />
           </div>
         </ParallaxLayer>

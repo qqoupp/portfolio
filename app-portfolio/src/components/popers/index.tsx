@@ -1,11 +1,11 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import Popper from '@mui/material/Popper';
-import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
-import Fade from '@mui/material/Fade';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
+import * as React from "react";
+import Typography from "@mui/material/Typography";
+import Popper from "@mui/material/Popper";
+import PopupState, { bindToggle, bindPopper } from "material-ui-popup-state";
+import Fade from "@mui/material/Fade";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 interface PopperProps {
   title: string;
@@ -19,7 +19,7 @@ function PopperPopupState({ title, content }: PopperProps) {
         <ClickAwayListener onClickAway={() => popupState.close()}>
           <div>
             <Typography
-              className="pt-2 text-white hover:text-orange-400 transition-colors duration-300 cursor-pointer"
+              className="pt-2 hover:text-orange-400 transition-colors duration-300 cursor-pointer"
               variant="h3"
               {...bindToggle(popupState)}
             >
@@ -34,8 +34,8 @@ function PopperPopupState({ title, content }: PopperProps) {
                       sx={{
                         border: 1,
                         p: 1,
-                        bgcolor: '#1E3F66',
-                        color: 'white',
+                        bgcolor: "#1E3F66",
+                        color: "white",
                       }}
                     >
                       <Typography sx={{ p: 1 }}>{content}</Typography>

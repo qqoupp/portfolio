@@ -7,14 +7,17 @@ const ButtonWrapper = styled.div<{ isActive: boolean }>`
   display: inline-flex;
   cursor: pointer;
   perspective: 600px;
-  width: 100px;  /* Reduced width */
-  height: 50px;  /* Reduced height */
+  width: 100px; /* Reduced width */
+  height: 50px; /* Reduced height */
 
-  ${({ isActive }): string => isActive ? `
+  ${({ isActive }): string =>
+    isActive
+      ? `
     ${Flipper} {
       transform: rotateX(0deg);
     }
-  ` : ''}
+  `
+      : ""}
 `;
 
 const Flipper = styled.div`
@@ -50,16 +53,16 @@ const ButtonFace = styled.div`
 `;
 
 const FrontFace = styled(ButtonFace)`
-  background-color: #ff6600;
+  background-color: black;
   color: white;
-  transform: rotateX(0deg) translateZ(25px); 
+  transform: rotateX(0deg) translateZ(25px);
 `;
 
 const BackFace = styled(ButtonFace)`
   background-color: transparent;
-  color: #ff6600;
-  border: 3px solid #ff6600;
-  transform: rotateX(90deg) translateZ(25px); 
+  color: black;
+  border: 3px solid black;
+  transform: rotateX(90deg) translateZ(25px);
 
   ${ButtonWrapper}:hover & {
     mix-blend-mode: difference;
@@ -72,7 +75,11 @@ interface FancyButtonProps {
   isActive?: boolean;
 }
 
-const FancyButton: React.FC<FancyButtonProps> = ({ title, onClick, isActive = false }) => {
+const FancyButton: React.FC<FancyButtonProps> = ({
+  title,
+  onClick,
+  isActive = false,
+}) => {
   return (
     <ButtonWrapper onClick={onClick} isActive={isActive}>
       <Flipper>

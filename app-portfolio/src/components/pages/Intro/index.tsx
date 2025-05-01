@@ -5,19 +5,27 @@ import FlipCard from "../../animations/cardFlip";
 const Intro = () => {
   return (
     <Box className="container mx-auto">
-      <Grid container spacing={2}>
-        <Grid item xs={8}>
-          <Typography variant="h2" color={"white"}>
-            Hi, I'm <span className="text-orange-500">Radu</span>, and this is where you can explore the projects I've been working on.
+      <Grid container direction="column" spacing={2} alignItems="center">
+        <Grid item xs={12} className="text-center">
+          <Typography
+            variant="h2"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+          >
+            Hi, I'm <span className="text-lime-900">Radu</span>, and this is
+            where you can explore my projects.
           </Typography>
         </Grid>
-        <Grid item xs={4} className="flex justify-center items-center">
-          {/* <img
-            onClick={() => setProfile(prevMode => !prevMode)}
-            className="h-86 w-86 object-scale-down rounded-full border-8 border-orange-400 hover:rotate-2 hover:scale-95 transition-all duration-300 ease-in-out hover:border-orange-500"
-            src={profile ? profileImage : Profile2}
-          /> */}
-          <FlipCard />
+        <Grid item xs={12} className="flex justify-center items-center mt-6">
+          <FlipCard
+            className="
+    w-40 h-40          
+    sm:w-48 sm:h-48   
+    md:w-56 md:h-56    
+    lg:w-64 lg:h-64     
+    xl:w-72 xl:h-72     
+    mx-auto
+  "
+          />
         </Grid>
       </Grid>
     </Box>

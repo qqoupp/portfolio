@@ -1,74 +1,54 @@
-import React, { useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
-import styled from "styled-components";
+import * as React from "react";
+import { SVGProps } from "react";
+import { useNavigate } from "react-router-dom";
 
-// Styled Container
-const LogoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  cursor: pointer;
-  overflow: hidden; 
-  padding: 0 20px;
-`;
+const Logo = (props: SVGProps<SVGSVGElement>) => {
+  const navigate = useNavigate();
 
-// Styled Animated SVG
-const AnimatedSVG = styled(animated.svg)`
-  width: 200px;
-  height: auto;
-`;
-
-const AnimFeTurbulence = animated("feTurbulence");
-const AnimFeDisplacementMap = animated("feDisplacementMap");
-
-const LogoAnimation: React.FC = () => {
-  const [open, toggle] = useState(false);
-
-  const { freq, factor, scale, opacity } = useSpring({
-    reverse: open,
-    from: { factor: 10, opacity: 0, scale: 0.9, freq: "0.0175, 0.0" },
-    to: { factor: 150, opacity: 1, scale: 1, freq: "0.0, 0.0" },
-    config: { duration: 3000 },
-  });
+  const handleLogoClick = () => {
+    navigate("/");
+  };
 
   return (
-    <LogoContainer onClick={() => toggle(!open)}>
-      <AnimatedSVG viewBox="95 0 900 446" style={{ scale, opacity }}>
+    <div
+      style={{
+        width: "10vw",
+        maxWidth: "100px",
+        minWidth: "50px",
+        minHeight: "50px",
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={85}
+        height={85}
+        onClick={handleLogoClick}
+        style={{ cursor: "pointer", width: "100%", height: "auto" }}
+        viewBox="0 0 370 290"
+        {...props}
+      >
         <defs>
-          <filter id="water">
-            <AnimFeTurbulence
-              type="fractalNoise"
-              baseFrequency={freq}
-              numOctaves="2"
-              result="TURB"
-              seed="8"
-            />
-            <AnimFeDisplacementMap
-              xChannelSelector="R"
-              yChannelSelector="G"
-              in="SourceGraphic"
-              in2="TURB"
-              result="DISP"
-              scale={factor}
-            />
-          </filter>
+          <clipPath id="45c53cdfeb">
+            <path d="M0 17h363v320.164H0Zm0 0"></path>
+          </clipPath>
         </defs>
-        <g filter="url(#water)">
-          <text x="50%" y="30%" textAnchor="middle" fontSize="120" fill="#ff6600" fontWeight="bold">
-            Radu
-          </text>
-          <text x="50%" y="55%" textAnchor="middle" fontSize="120" fill="#ff6600" fontWeight="bold">
-            Constantin
-          </text>
-          <text x="50%" y="85%" textAnchor="middle" fontSize="120" fill="#ff6600" fontWeight="bold">
-            Simuleac
-          </text>
+        <g clipPath="url(#45c53cdfeb)">
+          <path
+            fill="#222"
+            d="m301.918 233.031-9.496 9.496 47.406 82.098H210.313l-12.965 12.96h164.93ZM14.813 324.625l50.851-88.07-4.75-17.696-68.543 118.727H103.02l-3.473-12.961Zm243.066-167.89-80.555-139.5-53.828 93.218 12.969 3.465 40.86-70.766 62.843 108.852Zm0 0"
+          ></path>
         </g>
-      </AnimatedSVG>
-    </LogoContainer>
+        <path
+          fill="#222"
+          d="M143.142 222.464q8 8.004 13.438 21.281 5.436 13.284 10.234 27.844 4.794 14.55 10.078 27.36 5.28 12.797 12.797 20 7.531 7.19 18.407 4.953v1.922q-6.082 6.077-16.97 9.593-10.875 3.528-23.671 3.844-15.675-.002-26.719-6.719c-7.367-4.48-13.555-10.394-18.562-17.75q-7.517-11.044-12.485-24.328a254 254 0 0 1-8.312-26.562 5995 5995 0 0 0-6.25-24.485q-2.877-11.201-6.235-17.922-3.363-6.716-8.484-6.718h-1.594v89.922q-.002 8.002 5.75 13.609 5.764 5.595 13.766 5.594v1.922H3.283v-1.922q7.998 0 13.594-5.594 5.608-5.607 5.61-13.61V122.933q-.002-7.996-5.61-13.593-5.595-5.608-13.594-5.61v-1.921h127.375q16.641.001 30.234 7.531c9.07 5.012 16.329 11.73 21.766 20.156q8.156 12.645 8.156 28.313 0 15.374-8.156 28.172t-21.766 20.328q-13.593 7.517-30.234 7.516h-4.797s1.914.43 5.75 1.28q5.766 1.267 11.531 7.36m-43.203-9.61q9.591 0 17.266-7.359 7.687-7.359 12.328-19.828c3.094-8.32 4.64-17.5 4.64-27.53q0-15.047-4.64-27.36-4.64-12.33-12.328-19.688-7.674-7.36-17.266-7.36H78.814v109.126Zm0 0"
+        ></path>
+        <path
+          fill="#222"
+          d="M362.98 264.058q.95 12.798-5.296 24.172-6.236 11.362-18.078 19.687-11.831 8.315-27.36 13.11-15.516 4.798-32.796 4.797-22.409 0-41.454-7.36c-12.687-4.906-22.82-11.52-30.39-19.844q-11.36-12.481-11.36-28.156 0-14.076 10.079-24.156 10.075-10.092 24.171-10.094 14.076.002 24.157 10.094 10.077 10.08 10.078 24.156-.002 8.953-3.203 14.719-3.207 5.766-7.203 9.61-4.001 3.831-6.72 7.359-2.72 3.517-1.75 7.984 1.28 6.094 9.595 9.938 8.325 3.83 24 3.828 8.326.001 15.687-4 7.359-3.997 12-10.875 4.64-6.89 4.64-15.532-.001-12.153-8.327-23.03-8.314-10.888-21.438-21.282c-8.75-6.938-18.086-13.926-28-20.969q-14.876-10.558-28-22.078-13.126-11.515-21.453-24.312-8.314-12.809-8.313-27.844-.002-14.403 7.672-24.328 7.686-9.921 20-16.157c8.22-4.164 17.07-7.156 26.563-8.968q14.25-2.72 27.047-2.72 15.356 0 26.875 2.25c7.687 1.493 16.008 2.235 24.968 2.235q5.438.001 9.75-.953 4.325-.965 7.532-3.531h1.922v60.484h-1.922q-2.566-13.434-10.89-26.875-8.315-13.437-21.11-22.39c-8.532-5.977-18.344-8.97-29.438-8.97q-12.174.001-21.765 6.235c-6.399 4.157-9.918 11.04-10.563 20.64q-.956 12.488 6.234 23.048 7.201 10.565 19.36 20.328 12.17 9.752 26.094 19.516a425 425 0 0 1 26.718 20.312c8.532 7.043 15.727 14.621 21.594 22.734q8.811 12.159 10.094 27.188m0 0"
+        ></path>
+      </svg>
+    </div>
   );
 };
 
-export default LogoAnimation;
+export default Logo;
