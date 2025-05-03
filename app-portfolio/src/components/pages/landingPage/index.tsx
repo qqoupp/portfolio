@@ -75,7 +75,7 @@ const LandingPage = () => {
 
       <Parallax
         ref={parallaxRef}
-        pages={window.innerWidth < 768 ? 5.5 : 4}
+        pages={window.innerWidth < 768 ? 5.5 : 3}
         onScroll={handleScroll}
       >
         <ParallaxLayer
@@ -94,13 +94,13 @@ const LandingPage = () => {
           speed={0.5}
           factor={1}
         >
-          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6">
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen pt-20">
             <Intro />
           </div>
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={window.innerWidth < 768 ? 0.9 : 0.6}
+          offset={window.innerWidth < 768 ? 0.9 : 0.8}
           speed={0.5}
           factor={1}
         >
@@ -110,27 +110,27 @@ const LandingPage = () => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={window.innerWidth < 768 ? 1.6 : 1}
+          offset={window.innerWidth < 768 ? 1.6 : 1.1}
           speed={0.5}
           factor={1}
         >
-          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6">
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen ">
             <Skills />
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={2} speed={0.5} factor={1}>
-          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6">
+        <ParallaxLayer offset={1.95} speed={0.5} factor={1}>
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen ">
             <Projects />
           </div>
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={window.innerWidth < 768 ? 4.5 : 3.3}
+          offset={window.innerWidth < 768 ? 4.5 : 2.25}
           speed={0.5}
           factor={1}
         >
-          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen px-6">
+          <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen ">
             <Contact />
           </div>
         </ParallaxLayer>

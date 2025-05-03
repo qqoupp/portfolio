@@ -19,8 +19,8 @@ function PopperPopupState({ title, content }: PopperProps) {
         <ClickAwayListener onClickAway={() => popupState.close()}>
           <div>
             <Typography
-              className="pt-2 hover:text-orange-400 transition-colors duration-300 cursor-pointer"
-              variant="h3"
+              className="pt-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+              variant="h2"
               {...bindToggle(popupState)}
             >
               {title}

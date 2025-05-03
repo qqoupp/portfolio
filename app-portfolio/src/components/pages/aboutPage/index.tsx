@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 const AboutPage = forwardRef<HTMLButtonElement>((props, ref) => {
   const myRef = React.useRef<HTMLDivElement>(null);
   return (
-    <section className="w-full bg-blue-950 text-white py-16">
+    <section className="w-full bg-blue-950 bg-opacity-70 text-white py-16">
       <Box className="max-w-4xl mx-auto px-6 ">
         <Typography variant="h3" ref={myRef}>
           I am a recent graduate from{" "}

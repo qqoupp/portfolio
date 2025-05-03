@@ -1,22 +1,25 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
-import AuthenticationCard from "../../cards/index";
-
+import Slider from "../../slider/index";
 const Projects = forwardRef<HTMLButtonElement>((props, ref) => {
   const myRef = React.useRef<HTMLDivElement>(null);
   const executeScroll = () =>
     myRef.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <Box className="container mx-auto pt-10 ">
-      <Box className="p-4">
-        <div className="flex flex-row justify-between">
+    <section className="w-full bg-blue-950 bg-opacity-70 text-white py-16">
+      <Box className="max-w-4xl mx-auto px-6 ">
+        <div className="flex justify-between">
+          <div></div>
+          <Slider />
+          <div></div>
+        </div>
+        {/* <div className="flex flex-row justify-between">
           <a href="https://eslearning.co.uk/" target="_blank">
-            <Typography className="text-orange-600 " variant="h3">
+            <Typography className=" !font-semibold underline" variant="h2">
               ElevateStakLearning
             </Typography>
           </a>
-          <Typography variant="h4">Web application</Typography>
         </div>
         <br />
         <div className="flex flex-row justify-between">
@@ -30,9 +33,9 @@ const Projects = forwardRef<HTMLButtonElement>((props, ref) => {
         </div>
         <br />
         <div>
-          <Typography variant="h4">Description:</Typography>
+          <Typography variant="h3">Description:</Typography>
           <br />
-          <Typography variant="h4">
+          <Typography variant="h3">
             ElevateStakLearning is a web application that allows users to create
             an account, log in, and start learning. The application is designed
             to help users learn new skills and improve their knowledge. Users
@@ -42,36 +45,15 @@ const Projects = forwardRef<HTMLButtonElement>((props, ref) => {
           </Typography>
         </div>
         <br />
-        <Typography variant="h4">Features:</Typography>
-        <div className=" container mx-auto p-5 ">
-          <AuthenticationCard
-            title={"Authentication and authorization"}
-            content={"Expend for more info and video example"}
-            extraContent={"To be added"}
-          />
-          <AuthenticationCard
-            title={"Generating a learning path "}
-            content={"Expend for more info and video example"}
-            extraContent={"To be added"}
-          />
-          <AuthenticationCard
-            title={"Learning path visualization"}
-            content={"Expend for more info and video example"}
-            extraContent={"To be added"}
-          />
-          <AuthenticationCard
-            title={"Aditional querry for the learning path instructions"}
-            content={"Expend for more info and video example"}
-            extraContent={"To be added"}
-          />
-          <AuthenticationCard
-            title={"History of learning paths"}
-            content={"Expend for more info and video example"}
-            extraContent={"To be added"}
-          />
-        </div>
+        <div className="flex justify-between">
+          <div>Previous</div>
+          <Typography variant="h2" className="!font-semibold underline">
+            Check it out!
+          </Typography>
+          <div>Next</div>
+        </div> */}
       </Box>
-    </Box>
+    </section>
   );
 });
 export default Projects;
